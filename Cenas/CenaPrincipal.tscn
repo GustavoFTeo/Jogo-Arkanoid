@@ -1,0 +1,118 @@
+[gd_scene load_steps=12 format=3 uid="uid://bmwujypasxr57"]
+
+[ext_resource type="Script" path="res://Scripts/Jogador.gd" id="1_lixum"]
+[ext_resource type="Script" path="res://Scripts/Bola.gd" id="2_4d5wa"]
+[ext_resource type="Texture2D" uid="uid://cgxb3be6iqxax" path="res://Imagens/Bolinha.png" id="2_n0qhb"]
+[ext_resource type="PackedScene" uid="uid://bmcr0r12meo5d" path="res://Prefabs/Bloco.tscn" id="4_o1kok"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cy078"]
+size = Vector2(1.00239, 1.45955)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_88xk2"]
+size = Vector2(23.5294, 712)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kl7vm"]
+size = Vector2(34, 712)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kwwc1"]
+size = Vector2(0.837772, 0.119306)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tl2gr"]
+size = Vector2(192, 24)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qynbg"]
+radius = 24.0
+
+[sub_resource type="Theme" id="Theme_scgho"]
+default_base_scale = 1.0
+default_font_size = 40
+
+[node name="CenaPrincipal" type="Node2D"]
+
+[node name="Base" type="StaticBody2D" parent="."]
+scale = Vector2(1394.17, 263.789)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Base"]
+position = Vector2(0.414001, 2.51963)
+rotation = -3.14159
+scale = Vector2(0.834073, -0.0797443)
+shape = SubResource("RectangleShape2D_cy078")
+
+[node name="Paredes" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Paredes"]
+position = Vector2(-16, 324)
+scale = Vector2(1.36, 1)
+shape = SubResource("RectangleShape2D_88xk2")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Paredes"]
+position = Vector2(1168, 324)
+shape = SubResource("RectangleShape2D_kl7vm")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Paredes"]
+position = Vector2(576, -16.2642)
+scale = Vector2(1394.17, 263.789)
+shape = SubResource("RectangleShape2D_kwwc1")
+
+[node name="Jogador" type="CharacterBody2D" parent="."]
+motion_mode = 1
+script = ExtResource("1_lixum")
+
+[node name="ColorRect" type="ColorRect" parent="Jogador"]
+offset_left = 480.0
+offset_top = 560.0
+offset_right = 672.0
+offset_bottom = 584.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Jogador"]
+position = Vector2(576, 572)
+shape = SubResource("RectangleShape2D_tl2gr")
+
+[node name="Bola" type="CharacterBody2D" parent="."]
+script = ExtResource("2_4d5wa")
+
+[node name="TextureRect" type="TextureRect" parent="Bola"]
+offset_left = 552.0
+offset_top = 464.0
+offset_right = 1272.0
+offset_bottom = 1089.0
+scale = Vector2(0.0666898, 0.0768482)
+texture = ExtResource("2_n0qhb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bola"]
+position = Vector2(576, 488)
+shape = SubResource("CircleShape2D_qynbg")
+
+[node name="Cronometro" type="RichTextLabel" parent="."]
+offset_left = 976.0
+offset_top = 592.0
+offset_right = 1144.0
+offset_bottom = 644.0
+theme = SubResource("Theme_scgho")
+
+[node name="Bloco" parent="." instance=ExtResource("4_o1kok")]
+position = Vector2(128, 88)
+
+[node name="Bloco2" parent="." instance=ExtResource("4_o1kok")]
+position = Vector2(352, 88)
+
+[node name="Bloco3" parent="." instance=ExtResource("4_o1kok")]
+position = Vector2(576, 88)
+
+[node name="Bloco4" parent="." instance=ExtResource("4_o1kok")]
+position = Vector2(800, 88)
+
+[node name="Bloco5" parent="." instance=ExtResource("4_o1kok")]
+position = Vector2(1024, 88)
+
+[node name="Bloco6" parent="." instance=ExtResource("4_o1kok")]
+position = Vector2(240, 168)
+
+[node name="Bloco7" parent="." instance=ExtResource("4_o1kok")]
+position = Vector2(464, 168)
+
+[node name="Bloco8" parent="." instance=ExtResource("4_o1kok")]
+position = Vector2(688, 168)
+
+[node name="Bloco9" parent="." instance=ExtResource("4_o1kok")]
+position = Vector2(912, 168)
